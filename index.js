@@ -5,10 +5,10 @@ const routes = require('./src/routes')
 const lti = require('ltijs').Provider
 
 // Setup
-lti.setup(process.env.LTI_KEY,
+lti.setup('iualcoelknasfnk',
     {
 
-        url: 'mongodb://' + process.env.DB_HOST + '/' + process.env.DB_NAME + '?authSource=admin',
+        url: 'mongodb+srv://testFarr:251098@cluster0.aju2r.mongodb.net/?retryWrites=true&w=majority',
         connection: {user: process.env.DB_USER, pass: process.env.DB_PASS}
     }, {
         staticPath: path.join(__dirname, './public'), // Path to static files
