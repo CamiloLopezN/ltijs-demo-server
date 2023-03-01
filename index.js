@@ -34,7 +34,7 @@ lti.app.use(routes)
 
 // Setup function
 const setup = async () => {
-    await lti.deploy({port: process.env.PORT})
+    await lti.deploy({port: 5110})
 
     await lti.registerPlatform({
         url: 'https://wtech-moodle.net',
