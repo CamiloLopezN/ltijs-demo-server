@@ -13,11 +13,12 @@ lti.setup('iualcoelknasfnk',
     }, {
         staticPath: path.join(__dirname, './public'), // Path to static files
         cookies: {
-            secure: true, // Set secure to true if the testing platform is in a different domain and https is being used
-            sameSite: 'None' // Set sameSite to 'None' if the testing platform is in a different domain and https is being used
+            secure: false, // Set secure to true if the testing platform is in a different domain and https is being used
+            sameSite: '' // Set sameSite to 'None' if the testing platform is in a different domain and https is being used
         },
-        devMode: false // Set DevMode to true if the testing platform is in a different domain and https is not being used
-    })
+        devMode: true, // Set DevMode to true if the testing platform is in a different domain and https is not being used
+        dynRegRoute: '/register'
+})
 
 // When receiving successful LTI launch redirects to app
 lti.onConnect(async (token, req, res) => {
@@ -35,7 +36,6 @@ lti.app.use(routes)
 // Setup function
 const setup = async () => {
     await lti.deploy({port: 5110})
-
     await lti.registerPlatform({
         url: 'https://wtech-moodle.net',
         name: 'Moodle',
